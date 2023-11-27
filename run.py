@@ -2,43 +2,49 @@ import random
 
 class BattleshipGame:
     def __init__(self, player_name):
-        self.grid_size = 5
+        self.grid_size = 5  # Size of the grid
         self.player_grid = [['-' for _ in range(self.grid_size)] for _ in range(self.grid_size)]
         self.computer_grid = [['-' for _ in range(self.grid_size)] for _ in range(self.grid_size)]
         self.computer_display_grid = [['-' for _ in range(self.grid_size)] for _ in range(self.grid_size)]
         self.player_name = player_name
-        self.shots_limit = 10
-        self.ships_count = 3
+        self.shots_limit = 20  # Total shots limit for both player and computer
 
     def place_ships_randomly(self, grid):
-        for _ in range(self.ships_count):
+        # Place 3 ships randomly on the given grid
+        for _ in range(3):
             while True:
                 x, y = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
-                if grid[x][y] == '-':
-                    grid[x][y] = 'S'
+                if grid[x][y] == '-':  # Check if cell is empty
+                    grid[x][y] = 'S'  # Place ship
                     break
 
     def print_grid(self, grid):
+        # Print the given grid
         for row in grid:
             print(' '.join(row))
         print()
 
     def make_guess(self, grid, display_grid, x, y):
-        if grid[x][y] == 'S':
+        # Make a guess on the given grid and update the display grid
+        if grid[x][y] in ['H', 'X']:
+            # Cell has already been targeted
+            print("Already targeted. Choose another coordinate.")
+            return -1
+        elif grid[x][y] == 'S':
+            # Hit a ship
             grid[x][y] = 'H'
             display_grid[x][y] = 'H'
             print("Hit!")
             return 1
-        elif grid[x][y] == '-':
+        else:
+            # Missed
             grid[x][y] = 'X'
             display_grid[x][y] = 'X'
             print("Miss.")
             return 0
-        else:
-            print("Already targeted. Choose another coordinate.")
-            return -1
 
     def get_valid_coordinate(self, prompt):
+        # Get valid coordinate input from the user
         while True:
             try:
                 coord = int(input(prompt))
@@ -50,6 +56,7 @@ class BattleshipGame:
                 print("Invalid input. Please enter a number.")
 
     def computer_turn(self):
+        # Computer's turn to make a guess
         while True:
             x, y = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
             result = self.make_guess(self.player_grid, self.player_grid, x, y)
@@ -57,6 +64,7 @@ class BattleshipGame:
                 return result
 
     def player_turn(self):
+        # Player's turn to make a guess
         while True:
             x = self.get_valid_coordinate("Enter X coordinate for your guess: ")
             y = self.get_valid_coordinate("Enter Y coordinate for your guess: ")
@@ -64,35 +72,38 @@ class BattleshipGame:
             if result != -1:
                 return result
 
-    def check_game_over(self, grid):
-        return all(cell != 'S' for row in grid for cell in row)
-
     def start_game(self):
+        # Start the game
         self.place_ships_randomly(self.computer_grid)
         self.place_ships_randomly(self.player_grid)
 
-        player_score = 0
-        computer_score = 0
+        player_score = 0  # Player's score
+        computer_score = 0  # Computer's score
+        total_shots = 0  # Total number of shots made
 
-        while player_score < self.ships_count and computer_score < self.ships_count:
+        # Main game loop
+        while total_shots < self.shots_limit:
             print(f"\n{self.player_name}'s Grid:")
             self.print_grid(self.player_grid)
             print("Computer's Grid (Your Guesses):")
             self.print_grid(self.computer_display_grid)
 
             player_score += self.player_turn()
-            if self.check_game_over(self.computer_grid):
+            total_shots += 1
+            if total_shots >= self.shots_limit:
                 break
 
             computer_score += self.computer_turn()
-            if self.check_game_over(self.player_grid):
+            total_shots += 1
+            if total_shots >= self.shots_limit:
                 break
 
+        # End of the game - determining the winner
         print(f"\nFinal Score: {self.player_name} {player_score} - Computer {computer_score}")
         if player_score > computer_score:
-            print("You Win!")
+            print(f"{self.player_name} wins!")
         elif player_score < computer_score:
-            print("You lose.")
+            print("Computer wins.")
         else:
             print("It's a draw.")
 

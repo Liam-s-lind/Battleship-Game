@@ -69,17 +69,17 @@ A: The current version is designed for a single player against a computer. Imple
 - While developing this game, i aimed to adhere to standard Python coding practices.
 - some style guide warnings if you run a linter on the code. These include:
 
-3: E302 expected 2 blank lines, found 1
-6: E501 line too long (96 > 79 characters)
-7: E501 line too long (98 > 79 characters)
-8: E501 line too long (106 > 79 characters)
-16: E501 line too long (99 > 79 characters)
-54: E501 line too long (80 > 79 characters)
-61: E501 line too long (95 > 79 characters)
-69: E501 line too long (80 > 79 characters)
-70: E501 line too long (80 > 79 characters)
-71: E501 line too long (90 > 79 characters)
-102: E501 line too long (94 > 79 characters)
-111: E305 expected 2 blank lines after class or function definition, found 1
+- 3: E302 expected 2 blank lines, found 1
+- 6: E501 line too long (96 > 79 characters)
+- 7: E501 line too long (98 > 79 characters)
+- 8: E501 line too long (106 > 79 characters)
+- 16: E501 line too long (99 > 79 characters)
+- 54: E501 line too long (80 > 79 characters)
+- 61: E501 line too long (95 > 79 characters)
+- 69: E501 line too long (80 > 79 characters)
+- 70: E501 line too long (80 > 79 characters)
+- 71: E501 line too long (90 > 79 characters)
+- 102: E501 line too long (94 > 79 characters)
+- 111: E305 expected 2 blank lines after class or function definition, found 1
 
-I plan to address these in future updates so it stands up to PEP 8 standards.
+- I plan to address these in future updates so it stands up to PEP 8 standards.

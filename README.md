@@ -19,7 +19,7 @@ Welcome to the easy but fun Battleship Game, a command-line version of the class
 6. The game ends when all ships on one board are sunk or when all shots are used up.
 
 ## Example pictures:
-### Game Start
+### Game Start:
 ![Grid](pictures/Game-start.png)
 - 
 ### cordinates:
@@ -62,3 +62,8 @@ Welcome to the easy but fun Battleship Game, a command-line version of the class
 A: Currently, the grid size is fixed at 5x5, but you can modify the grid_size variable in the code for a different size.
 - Q: Is it possible to play with another human player?
 A: The current version is designed for a single player against a computer. Implementing a two-player mode could be a great contribution!
+
+# Issues
+
+- The Pythone code sows some issues, it dose not effect this game.
+- While developing this game, i aimed to adhere to standard Python coding practices.

@@ -18,7 +18,18 @@ Welcome to the easy but fun Battleship Game, a command-line version of the class
 5. The game will indicate whether it was a hit or a miss.
 6. The game ends when all ships on one board are sunk or when all shots are used up.
 
-## Limitations
+## Example pictures:
+### Game Start
+![Grid](pictures/Game-start.png)
+- 
+### cordinates:
+![Use x and Y cordinates](pictures/Cordinate-to-shoot.png)
+- 
+### Win Or Loose:
+![win or loose](pictures/win-loose.png)
+
+
+# Limitations
 - The game currently does not have a graphical interface; it only runs in the console.
 - There is no difficulty level for the computer, it makes random guesses.
 - Board size and number of ships are fixed and cannot be changed.
@@ -38,6 +49,13 @@ Welcome to the easy but fun Battleship Game, a command-line version of the class
 # Installation
 - No additional libraries is required to run this game. Just ,ake sure you have Python installed on your system.
 
+# Future Enhancements
+- Adding a graphical user interface.
+- Implementing adjustable difficulty levels.
+- Allowing customizable board sizes and number of ships.
+
+1. Graphics:
+- ![how it looks](pictures/missing-shot.png)
 
 # FAQ
 - Q: Can I change the grid size?

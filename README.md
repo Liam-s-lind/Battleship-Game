@@ -1,32 +1,46 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship Game
 
-Welcome,
+Welcome to the easy but fun Battleship Game, a command-line version of the classic strategy game implemented in Python. This game pits you against a computer opponent in a naval warfare simulation on a 5x5 grid. With enhanced features and gameplay mechanics, it offers an engaging experience for players looking to test their strategic thinking.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## Features
 
-## Reminders
+- **5x5 Grid Battlespace**: A compact yet challenging field for tactical maneuvers.
+- **Random Ship Placement**: Each game has a unique setup with randomly placed ships.
+- **Shot Limit**: The game is intensified with a 20-shot limit, ensuring quick and decisive gameplay (10 shots each for Player and Computer).
+- **Advanced Scoring System**: Keep track of your hits and misses to outsmart the computer.
+- **Simple Interface**: Easy-to-use command-line interface for all levels of players.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+# How to Play
+1. Run the script in a Python environment.
+2. Enter your name when prompted.
+3. You will see your board with your ships (marked as 'S') and the hits or misses.
+4. Enter the row and column numbers to hit a spot on the computer's board.
+5. The game will indicate whether it was a hit or a miss.
+6. The game ends when all ships on one board are sunk or when all shots are used up.
 
-## Creating the Heroku app
+## Limitations
+- The game currently does not have a graphical interface; it only runs in the console.
+- There is no difficulty level for the computer, it makes random guesses.
+- Board size and number of ships are fixed and cannot be changed.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+# Code Structure
+- BattleshipGame: The main class that handles game logic.
+- __init__: Initializes the game settings.
+- place_ships_randomly: Randomly places ships on the grid.
+- print_grid: Displays the current state of the grid.
+- make_guess: Handles the logic for guessing ship positions.
+- get_valid_coordinate: Validates player input.
+- computer_turn: Manages the computer's turn.
+- player_turn: Manages the player's turn.
+- start_game: Starts the game loop.
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# Installation
+- No additional libraries is required to run this game. Just ,ake sure you have Python installed on your system.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+# FAQ
+- Q: Can I change the grid size?
+A: Currently, the grid size is fixed at 5x5, but you can modify the grid_size variable in the code for a different size.
+- Q: Is it possible to play with another human player?
+A: The current version is designed for a single player against a computer. Implementing a two-player mode could be a great contribution!
